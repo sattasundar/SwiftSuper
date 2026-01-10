@@ -50,7 +50,7 @@ A dashboard for tracking daily prayer schedules.
 ### Installation
 1.  **Clone the Repository**:
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/sattasundar/SwiftSuper.git
     cd SwiftSuper
     ```
 
