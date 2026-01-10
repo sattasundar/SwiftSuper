@@ -1,0 +1,33 @@
+{
+  "originHash" : "e463e2ba4dbeaf82f895987bcf3d518c4192b382b894968830af838b592caf43",
+  "pins" : [
+    {
+      "identity" : "books",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sattasundar/Books.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "957953f5690dfa461e673cd5447d8fc1f9bf8041"
+      }
+    },
+    {
+      "identity" : "core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sattasundar/Core.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "9f06079ef9296857985f5bb0d6476ce14baf5d6b"
+      }
+    },
+    {
+      "identity" : "prayertime",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sattasundar/PrayerTime",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4fd4d7030235f8c32b1b0b28ba4375a9844df106"
+      }
+    }
+  ],
+  "version" : 3
+}

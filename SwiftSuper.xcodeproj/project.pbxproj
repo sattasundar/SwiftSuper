@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10D05EB2F12DB9900C5E7CD /* PrayerTime in Frameworks */ = {isa = PBXBuildFile; productRef = A10D05EA2F12DB9900C5E7CD /* PrayerTime */; };
+		A19946022F12D5E800E0D76E /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = A19946012F12D5E800E0D76E /* Core */; };
+		A199460D2F12D8A800E0D76E /* Books in Frameworks */ = {isa = PBXBuildFile; productRef = A199460C2F12D8A800E0D76E /* Books */; };
 		A1E6AA512F12C41F0076F70D /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = A1E6AA502F12C41F0076F70D /* Core */; };
 		A1E6AA542F12C4340076F70D /* Books in Frameworks */ = {isa = PBXBuildFile; productRef = A1E6AA532F12C4340076F70D /* Books */; };
 		A1E6AA572F12C4570076F70D /* PrayerTime in Frameworks */ = {isa = PBXBuildFile; productRef = A1E6AA562F12C4570076F70D /* PrayerTime */; };
@@ -30,7 +33,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E6AA512F12C41F0076F70D /* Core in Frameworks */,
+				A199460D2F12D8A800E0D76E /* Books in Frameworks */,
+				A19946022F12D5E800E0D76E /* Core in Frameworks */,
 				A1E6AA572F12C4570076F70D /* PrayerTime in Frameworks */,
+				A10D05EB2F12DB9900C5E7CD /* PrayerTime in Frameworks */,
 				A1E6AA542F12C4340076F70D /* Books in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +83,9 @@
 				A1E6AA502F12C41F0076F70D /* Core */,
 				A1E6AA532F12C4340076F70D /* Books */,
 				A1E6AA562F12C4570076F70D /* PrayerTime */,
+				A19946012F12D5E800E0D76E /* Core */,
+				A199460C2F12D8A800E0D76E /* Books */,
+				A10D05EA2F12DB9900C5E7CD /* PrayerTime */,
 			);
 			productName = SwiftSuper;
 			productReference = A1E6AA2A2F12A83D0076F70D /* SwiftSuper.app */;
@@ -107,9 +116,9 @@
 			mainGroup = A1E6AA212F12A83D0076F70D;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A1E6AA4F2F12C41F0076F70D /* XCLocalSwiftPackageReference "../Packages/Core" */,
-				A1E6AA522F12C4340076F70D /* XCLocalSwiftPackageReference "../Packages/Books" */,
-				A1E6AA552F12C4570076F70D /* XCLocalSwiftPackageReference "../Packages/PrayerTime" */,
+				A19946002F12D5E800E0D76E /* XCRemoteSwiftPackageReference "Core" */,
+				A199460B2F12D8A800E0D76E /* XCRemoteSwiftPackageReference "Books" */,
+				A10D05E92F12DB9900C5E7CD /* XCRemoteSwiftPackageReference "PrayerTime" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A1E6AA2B2F12A83D0076F70D /* Products */;
@@ -363,22 +372,49 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		A1E6AA4F2F12C41F0076F70D /* XCLocalSwiftPackageReference "../Packages/Core" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/Core;
+/* Begin XCRemoteSwiftPackageReference section */
+		A10D05E92F12DB9900C5E7CD /* XCRemoteSwiftPackageReference "PrayerTime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sattasundar/PrayerTime";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
 		};
-		A1E6AA522F12C4340076F70D /* XCLocalSwiftPackageReference "../Packages/Books" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/Books;
+		A19946002F12D5E800E0D76E /* XCRemoteSwiftPackageReference "Core" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sattasundar/Core.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
 		};
-		A1E6AA552F12C4570076F70D /* XCLocalSwiftPackageReference "../Packages/PrayerTime" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/PrayerTime;
+		A199460B2F12D8A800E0D76E /* XCRemoteSwiftPackageReference "Books" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sattasundar/Books.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A10D05EA2F12DB9900C5E7CD /* PrayerTime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A10D05E92F12DB9900C5E7CD /* XCRemoteSwiftPackageReference "PrayerTime" */;
+			productName = PrayerTime;
+		};
+		A19946012F12D5E800E0D76E /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A19946002F12D5E800E0D76E /* XCRemoteSwiftPackageReference "Core" */;
+			productName = Core;
+		};
+		A199460C2F12D8A800E0D76E /* Books */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A199460B2F12D8A800E0D76E /* XCRemoteSwiftPackageReference "Books" */;
+			productName = Books;
+		};
 		A1E6AA502F12C41F0076F70D /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
