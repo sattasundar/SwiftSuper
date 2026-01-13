@@ -38,6 +38,66 @@ A dashboard for tracking daily prayer schedules.
 *   **Tech**: SwiftUI, Charts/Shapes.
 *   **Design**: Modern dashboard with Morning/Evening summary cards and a monthly forecast table.
 
+### 5. **Oblation** (React Native Mini App)
+A React Native mini-app fully integrated into the Swift host.
+*   **Tech**: React Native 0.83 (Fabric Enabled), TypeScript.
+*   **Integration**: Loaded via `RCTRootViewFactory`.
+*   **Architecture**: Hybrid (Fabric enabled, Bridgeless disabled) for maximum compatibility.
+
+---
+
+## ⚛️ React Native Integration (Brownfield)
+
+The app supports hosting React Native bundles alongside native Swift packages.
+
+### Architecture Overview
+*   **Engine**: Hermes Enabled.
+*   **Rendering**: **Fabric** (New Architecture) is ENABLED.
+*   **Bridge**: **Bridgeless Mode** is DISABLED (Hybrid Mode).
+    *   *Why?* React Native 0.83 defaults to Bridgeless, but many community libraries (like `react-native-safe-area-context`) still rely on the legacy Bridge for event emitters. We run in Hybrid mode to get the performance of Fabric UI while keeping Native Modules working.
+
+### Key Components
+
+#### 1. Polyfill (`index.js`)
+To support legacy libraries in this Hybrid environment, we inject a polyfill for `RCTEventEmitter`:
+```javascript
+// Packages/Oblation/index.js
+const registerCallableModule = require('react-native/Libraries/Core/registerCallableModule').default;
+// Registers a custom object that forwards 'receiveEvent' to the new 'RCTDeviceEventEmitter'
+```
+
+#### 2. Native Hosting (`OblationMiniApp.swift`)
+The host app loads the RN bundle using `RCTRootViewFactory`:
+```swift
+// Creates the React Root View with Fabric support
+let view = factory.view(withModuleName: "Oblation", initialProperties: [:])
+```
+
+### Development Workflow
+To run the React Native Mini App:
+
+1.  **Install Dependencies**:
+    ```bash
+    cd Packages/Oblation
+    npm install
+    ```
+
+2.  **Install Pods (Host)**:
+    ```bash
+    cd SwiftSuper
+    pod install
+    ```
+
+3.  **Start Metro Bundler**:
+    You MUST have Metro running to load the JS bundle in Debug mode.
+    ```bash
+    cd Packages/Oblation
+    npm start --reset-cache
+    ```
+
+4.  **Run iOS App**:
+    Build and run `SwiftSuper` from Xcode. Navigate to the "Oblation" tab.
+
 ---
 
 ## 🛠 Setup & Installation
