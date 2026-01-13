@@ -98,6 +98,82 @@ To run the React Native Mini App:
 4.  **Run iOS App**:
     Build and run `SwiftSuper` from Xcode. Navigate to the "Oblation" tab.
 
+### Scaling to Multiple Mini Apps
+To add more React Native mini-apps (e.g., `Donation`, `Events`) in the future:
+
+1.  **Shared Dependencies**: All mini-apps must share `SwiftSuper/Podfile` and the root `package.json`. You cannot have conflicting versions of libraries (e.g., React Native Maps) across mini-apps.
+2.  **Multiple Roots**: Register each mini-app in `index.js`:
+    ```javascript
+    AppRegistry.registerComponent('Oblation', () => OblationApp);
+    AppRegistry.registerComponent('Donation', () => DonationApp);
+    ```
+3.  **Swift Usage**: Load them by name in the host:
+    ```swift
+    // Load Oblation
+    factory.view(withModuleName: "Oblation", ...)
+    // Load Donation
+    factory.view(withModuleName: "Donation", ...)
+    ```
+
+### Strategy for Separate Repositories
+If your teams work in separate Git repositories (Multi-Repo):
+
+1.  **Treat Mini Apps as Libraries**:
+    *   The Mini App repo should **not** have its own `ios` or `android` folders.
+    *   It should have a `package.json` with `react-native` listed as a **peerDependency**.
+
+2.  **Install in Host**:
+    In `SwiftSuper/package.json`, install them via Git URL or NPM Registry:
+    ```json
+    "dependencies": {
+      "react-native": "0.83.1",
+      "oblation-mini-app": "git+ssh://git@github.com/org/oblation.git#main",
+      "donation-mini-app": "git+ssh://git@github.com/org/donation.git#v1.0.0"
+    }
+    ```
+
+3.  **Aggregation (The Magic Step)**:
+    You need a **single entry file** in `SwiftSuper` (e.g., `index.js`) that imports everyone.
+    ```javascript
+    // SwiftSuper/index.js
+    import { AppRegistry } from 'react-native';
+    
+    // 1. Import the Mini App Packages
+    // These packages internally call AppRegistry.registerComponent('Oblation', ...)
+    import 'oblation-mini-app'; 
+    import 'donation-mini-app';
+    
+    // 2. That's it! Metro bundles this file, and all apps become available.
+    ```
+
+4.  **Native Loading (Unchanged)**:
+    The Swift code **does not change**. It simply asks for the keys that were registered.
+    ```swift
+    // This works because 'oblation-mini-app' imported above registered "Oblation"
+    let view = factory.view(withModuleName: "Oblation", initialProperties: [:])
+    ```
+
+### Deployment: Cloud Storage (OTA Updates)
+If you want to host bundles on the cloud (e.g., S3) and update them without releasing a new App Store version:
+
+1.  **Do NOT stream bundles**: You generally cannot "stream" a bundle from a URL directly into the engine for performance reasons.
+2.  **Download & Cache Pattern**:
+    *   **Step 1**: Swift Host checks an API: `GET /api/latest-bundle-version`.
+    *   **Step 2**: Swift Host downloads the new `index.bundle` (zip) to the device's filesystem (e.g., `Documents/Bundles/v102`).
+    *   **Step 3**: Re-initialize the `reactNativeFactory` with the **local path** to the new bundle.
+    
+    ```swift
+    // Pseudocode in AppDelegate or MiniAppManager
+    let latestBundlePath = getCachedBundlePath() ?? Bundle.main.url(forResource: "main", withExtension: "jsbundle")
+    let factory = RCTReactNativeFactory(delegate: self) // Delegate returns latestBundlePath
+    ```
+
+3.  **Recommended Tools**:
+    Instead of building this manually, use standard OTA solutions:
+    *   **Microsoft CodePush**: Standard for "Brownfield" apps.
+    *   **Expo Updates**: If using Expo modules.
+    *   **Re.Pack**: For advanced "Super Apps" that need to load *individual* mini-apps lazily (Webpack-based).
+
 ---
 
 ## 🛠 Setup & Installation
