@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43AC280EFD33CAFD01833483 /* Pods_SwiftSuper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5E561EC26A7688262952636 /* Pods_SwiftSuper.framework */; };
 		A10D05EB2F12DB9900C5E7CD /* PrayerTime in Frameworks */ = {isa = PBXBuildFile; productRef = A10D05EA2F12DB9900C5E7CD /* PrayerTime */; };
 		A19946022F12D5E800E0D76E /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = A19946012F12D5E800E0D76E /* Core */; };
 		A199460D2F12D8A800E0D76E /* Books in Frameworks */ = {isa = PBXBuildFile; productRef = A199460C2F12D8A800E0D76E /* Books */; };
 		A1E6AA512F12C41F0076F70D /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = A1E6AA502F12C41F0076F70D /* Core */; };
 		A1E6AA542F12C4340076F70D /* Books in Frameworks */ = {isa = PBXBuildFile; productRef = A1E6AA532F12C4340076F70D /* Books */; };
 		A1E6AA572F12C4570076F70D /* PrayerTime in Frameworks */ = {isa = PBXBuildFile; productRef = A1E6AA562F12C4570076F70D /* PrayerTime */; };
+		E52E2CAB214AC46C6EEB0D20 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AD717FDB04984D34A86A7F5A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BF32215B5B22709F541BB6F /* Pods-SwiftSuper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSuper.release.xcconfig"; path = "Target Support Files/Pods-SwiftSuper/Pods-SwiftSuper.release.xcconfig"; sourceTree = "<group>"; };
 		A1E6AA2A2F12A83D0076F70D /* SwiftSuper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSuper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD717FDB04984D34A86A7F5A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		C51371971752CE953BB8D079 /* Pods-SwiftSuper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSuper.debug.xcconfig"; path = "Target Support Files/Pods-SwiftSuper/Pods-SwiftSuper.debug.xcconfig"; sourceTree = "<group>"; };
+		D5E561EC26A7688262952636 /* Pods_SwiftSuper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSuper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A1E6AA2C2F12A83D0076F70D /* SwiftSuper */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = SwiftSuper;
 			sourceTree = "<group>";
 		};
@@ -38,17 +46,38 @@
 				A1E6AA572F12C4570076F70D /* PrayerTime in Frameworks */,
 				A10D05EB2F12DB9900C5E7CD /* PrayerTime in Frameworks */,
 				A1E6AA542F12C4340076F70D /* Books in Frameworks */,
+				43AC280EFD33CAFD01833483 /* Pods_SwiftSuper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D08380B060C28DB91431E6C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C51371971752CE953BB8D079 /* Pods-SwiftSuper.debug.xcconfig */,
+				5BF32215B5B22709F541BB6F /* Pods-SwiftSuper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		256143B2DF64671D564D72ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5E561EC26A7688262952636 /* Pods_SwiftSuper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A1E6AA212F12A83D0076F70D = {
 			isa = PBXGroup;
 			children = (
 				A1E6AA2C2F12A83D0076F70D /* SwiftSuper */,
 				A1E6AA2B2F12A83D0076F70D /* Products */,
+				AD717FDB04984D34A86A7F5A /* PrivacyInfo.xcprivacy */,
+				0D08380B060C28DB91431E6C /* Pods */,
+				256143B2DF64671D564D72ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,9 +96,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1E6AA352F12A83E0076F70D /* Build configuration list for PBXNativeTarget "SwiftSuper" */;
 			buildPhases = (
+				E6B78FBDD5A48A5AA66D09B2 /* [CP] Check Pods Manifest.lock */,
 				A1E6AA262F12A83D0076F70D /* Sources */,
 				A1E6AA272F12A83D0076F70D /* Frameworks */,
 				A1E6AA282F12A83D0076F70D /* Resources */,
+				5EDC1B1BB808A68D349BF5F4 /* [CP] Embed Pods Frameworks */,
+				193CC3331E2081FC1031FEF4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,10 +167,70 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52E2CAB214AC46C6EEB0D20 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		193CC3331E2081FC1031FEF4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftSuper/Pods-SwiftSuper-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftSuper/Pods-SwiftSuper-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftSuper/Pods-SwiftSuper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5EDC1B1BB808A68D349BF5F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftSuper/Pods-SwiftSuper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftSuper/Pods-SwiftSuper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftSuper/Pods-SwiftSuper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6B78FBDD5A48A5AA66D09B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftSuper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1E6AA262F12A83D0076F70D /* Sources */ = {
@@ -158,7 +250,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -188,7 +280,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -203,12 +295,29 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-runtimeexecutor/React_runtimeexecutor.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-runtimeexecutor/React_runtimeexecutor.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../node_modules/react-native";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -219,7 +328,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -249,7 +358,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -258,15 +367,33 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-runtimeexecutor/React_runtimeexecutor.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-runtimeexecutor/React_runtimeexecutor.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../node_modules/react-native";
 				SWIFT_COMPILATION_MODE = wholemodule;
+				USE_HERMES = true;
 			};
 			name = Release;
 		};
 		A1E6AA362F12A83E0076F70D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C51371971752CE953BB8D079 /* Pods-SwiftSuper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +436,7 @@
 		};
 		A1E6AA372F12A83E0076F70D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BF32215B5B22709F541BB6F /* Pods-SwiftSuper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

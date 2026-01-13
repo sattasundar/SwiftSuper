@@ -18,6 +18,7 @@ class MiniAppManager {
         // Register known Mini Apps
         registeredApps.append(PrayerTimeMiniApp())
         registeredApps.append(BooksMiniApp())
+        registeredApps.append(OblationMiniApp())
         
         // Add more apps here as they are added to the workspace
         print("Registered \(registeredApps.count) mini apps.")

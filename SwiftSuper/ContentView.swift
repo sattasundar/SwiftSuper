@@ -34,6 +34,16 @@ struct ContentView: View {
                     Label(prayerApp.name, systemImage: prayerApp.icon)
                 }
             }
+
+            // Tab 3: Oblation
+            if let oblationApp = miniApps.first(where: { $0.id == "com.satsang.oblation" }) {
+                NavigationStack {
+                    MiniAppWrapper(miniApp: oblationApp)
+                }
+                .tabItem {
+                    Label(oblationApp.name, systemImage: oblationApp.icon)
+                }
+            }
         }
     }
 }
