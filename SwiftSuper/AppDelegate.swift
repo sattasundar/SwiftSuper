@@ -8,6 +8,16 @@ class AppDelegate: RCTAppDelegate {
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         Self.shared = self
         self.automaticallyLoadReactNativeWindow = false
+        self.moduleName = "SwiftSuper"
+        self.initialProps = [:]
+        
+        // Trigger background check for updates
+        BundleManager.shared.checkForUpdates { updated in
+            if updated {
+                print("🚀 [OTA] Update downloaded. Restart the app to apply.")
+            }
+        }
+        
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
@@ -18,12 +28,18 @@ class AppDelegate: RCTAppDelegate {
     }
     
     override func sourceURL(for bridge: RCTBridge!) -> URL! {
+        // 1. Check for OTA update first
+        if let otaBundle = BundleManager.shared.activeBundleURL() {
+            return otaBundle
+        }
+        
+        // 2. Fallback to Metro (Debug) or Built-in Bundle (Release)
         return self.bundleURL()
     }
     
     override func bundleURL() -> URL? {
         #if DEBUG
-            return URL(string: "http://localhost:8081/index.bundle?platform=ios")
+            return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
         #else
             return Bundle.main.url(forResource: "main", withExtension: "jsbundle")
         #endif
